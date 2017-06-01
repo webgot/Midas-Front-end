@@ -1,0 +1,180 @@
+﻿<%@ page contentType="text/html; charset=UTF-8" %>
+<%@ page import="user.UserDAO" %>
+<%@ page import="user.UserDTO" %>
+<%@ page import="java.util.*, java.text.*" %>
+<!DOCTYPE html>
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+   <link rel="stylesheet" href="css/bootstrap.css">
+   <link rel="stylesheet" href="css/custom.css">
+   <link href="css/bootstrap-datetimepicker.css" rel="stylesheet">
+   <link href="//netdna.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet">
+   
+   <title>MIDAS Cook</title>
+	<script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.8.4/moment.min.js"></script>
+
+   <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+
+   <script src="js/bootstrap.js"></script>
+   <script src="js/bootstrap-datetimepicker.min.js"></script>
+   <script type="text/javascript">
+
+      function showUnread(result) {
+         $('#unread').html(result);
+      }      
+      function getUnread() {
+         $.ajax({
+            type: "POST",
+            url: "./chatUnread",
+            data: {
+               userID : encodeURIComponent('<%= userID %>'),
+            },
+            success: function(result) {
+               if(result >= 1) {
+                  showUnread(result);
+               }
+               else {
+                  showUnread('');
+               }
+            }
+         });
+      }
+      function getInfiniteUnread() {
+         setInterval(function() {
+            getUnread();
+         }, 4000);
+      }      
+   </script>
+</head>
+<body>
+   <nav class="navbar navbar-default">
+      <div class="navbar-header">
+         <button type="button" class="navbar-toggle collapsed"
+            data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"
+            aria-expanded="false">
+            <span class="icon-bar"></span>   
+            <span class="icon-bar"></span>   
+            <span class="icon-bar"></span>   
+         </button>
+         <a class="navbar-brand" href="index.jsp">MIDAS Cook</a>
+      </div>
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+         <ul class="nav navbar-nav">
+            <li><a href="index.jsp">메인</a></li>
+            <li class="active"><a href="meatViewManage.jsp">식단관리</a></li>
+            <li><a href="meatViewStudent.jsp">오늘의 식단</a></li>
+            <li><a href="find.jsp">친구찾기</a></li>
+            <li><a href="box.jsp">메신저<span id="unread" class="label label-info"></span></a></li>
+            <li><a href="boardView.jsp">건의 게시판</a></li>
+            <li><a href="statisticsStudent.jsp">통계</a></li>   
+         </ul>
+         <ul class="nav navbar-nav navbar-right">
+            <li class="dropdown">
+               <a href="#" class="dropdown-toggle"
+                  data-toggle="dropdown" role="button" aria-haspopup="true"
+                  aria-expanded="false">회원관리<span class="caret"></span></a>
+               <ul class="dropdown-menu">
+                  <li><a href="profileUpdate.jsp">프로필 수정</a></li>
+                  <li><a href="update.jsp">회원정보수정</a></li>
+                  <li><a href="logoutAction.jsp">로그아웃</a></li>
+               </ul>
+            </li>
+         </ul>   
+      </div>
+   </nav>      
+   <div class="input-group date" id="example">
+  <input type="text" class="form-control" />
+  <span class="input-group-addon">
+    <span class="glyphicon glyphicon-calendar"></span>
+  </span>
+</div>
+
+   <div class="row-fluid">
+      <div class="col-xs-4">
+         <table class="table table-bordered table-hover" style="text-align: center; border: 1px solid #dddddd">
+            <thead>
+               <tr>
+                  <th colspan="4"><h4>조식</h4></th>
+               </tr>
+               <tr>
+                  <td style="background-color: #fafafa; color: #000000; width: 80px;"><h5>제목</h5></td>
+                  <td colspan="3"><h5>금주의 식단입니다.</h5></td>
+               </tr>
+               <tr>
+                  <td style="background-color: #fafafa; color: #000000; width: 80px;"><h5>작성자</h5></td>
+                  <td colspan="3"><h5>관리자</h5></td>
+               </tr>               
+               <tr>
+                  <td style="background-color: #fafafa; color: #000000; width: 80px;"><h5>작성날짜</h5></td>
+                  <td><h5>2017-05-05</h5></td>
+                  <td style="background-color: #fafafa; color: #000000; width: 80px;"><h5>조회수</h5></td>
+                  <td><h5>20</h5></td>
+               </tr>
+               <tr>
+                  <td style="background-color: #fafafa; color: #000000; width: 80px;"></td>
+                  <td colspan="3"><img class="media-object img-circle" style="max-width: 200px; max-height: 200px; margin: 0px auto;" src="<%= new UserDAO().getProfile(userID) %>"></td>
+               </tr>            
+            </thead>
+            <tbody>
+               <tr>
+                  <td colspan="5" style="text-align: right;">
+                        <a href="meatUpdateManage.jsp?meatID=5" class="btn btn-primary">수정</a>
+                        <a href="meatDeleteManage.jsp?meatID=5" onclick="return confirm('정말로 삭제하시겠습니까?');" class="btn btn-primary">삭제</a>
+                  </td>
+               </tr>         
+            </tbody>
+         </table>   
+      </div>
+      <div class="col-xs-4">
+         <table class="table table-bordered table-hover" style="text-align: center; border: 1px solid #dddddd">
+            <thead>
+               <tr>
+                  <th colspan="4"><h4>중식</h4></th>
+               </tr>
+               <tr>
+                  <td style="background-color: #fafafa; color: #000000; width: 80px;"><h5>제목</h5></td>
+                  <td colspan="3"><h5>금주의 식단입니다.</h5></td>
+               </tr>
+               <tr>
+                  <td style="background-color: #fafafa; color: #000000; width: 80px;"><h5>작성자</h5></td>
+                  <td colspan="3"><h5>관리자</h5></td>
+               </tr>               
+               <tr>
+                  <td style="background-color: #fafafa; color: #000000; width: 80px;"><h5>작성날짜</h5></td>
+                  <td><h5>2017-05-05</h5></td>
+                  <td style="background-color: #fafafa; color: #000000; width: 80px;"><h5>조회수</h5></td>
+                  <td><h5>20</h5></td>
+               </tr>
+               <tr>
+                  <td style="background-color: #fafafa; color: #000000; width: 80px;"></td>
+                  <td colspan="3"><img class="media-object img-circle" style="max-width: 200px; max-height: 200px; margin: 0px auto;" src="<%= new UserDAO().getProfile(userID) %>"></td>
+               </tr>            
+            </thead>
+            <tbody>
+               <tr>
+                  <td colspan="5" style="text-align: right;">
+                        <a href="meatUpdateManage.jsp?meatID=5" class="btn btn-primary">수정</a>
+                        <a href="meatDeleteManage.jsp?meatID=5" onclick="return confirm('정말로 삭제하시겠습니까?');" class="btn btn-primary">삭제</a>
+                  </td>
+               </tr>            
+            </tbody>
+         </table>   
+      </div>
+      <div class="col-xs-4">
+         <table class="table table-bordered table-hover" style="text-align: center; border: 1px solid #dddddd">
+            <thead>
+               <tr>
+                  <td>
+                     <h5><a href="./meatAddManage.jsp?meatDate=<%= current %>&meatType=three">추가하기</a></h5>
+                  </td>
+               </tr>         
+            </thead>
+            <tbody>
+            </tbody>
+         </table>   
+      </div>
+   </div>      
+</body>
+</html> 

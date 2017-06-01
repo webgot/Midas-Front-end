@@ -1,0 +1,157 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/semantic.min.css">
+    
+    <style>
+        #chart_div{
+            float: left;
+        }
+        #donutchart{
+            float: left;
+        }
+    </style>
+  </head>
+
+  <body>
+
+    <!--Div that will hold the pie chart-->
+    <!--
+    <div id="chart_div"  style="width: 500px; height: 500px;"></div>
+    <div id="donutchart" style="width: 500px; height: 500px;"></div>
+    -->
+    <div class="chart-main-wrapper">
+        
+        <div class="chart-part-container clearfix">
+            <div class="chart-part-left">
+                <ul class="statistic-name">
+                    <li>
+                        <a href="bytime.html">
+                            <h3>시간대별</h3>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="byuser.html">
+                            <h3>사용자별</h3>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="bydate.html">
+                            <h3>기간별</h3>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="bydinning.html">
+                            <h3>식단별</h3>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="chart-part-right">
+                <div class="statistics-total">
+                    <div class="statistics-total-wrapper clearfix">
+                        <div class="breakfast dinning">
+                            <div class="statistics-name">
+                                <h3>조식</h3>
+                            </div>
+                            
+                           <h2>123,543</h2>
+                           <div class="statistics-total-sum">
+                               /150,000
+                           </div>
+
+                        </div>
+                        <div class="lunch dinning">
+                            <div class="statistics-name">
+                                <h3>중식</h3>
+                            </div>
+                            <h2>100,543</h2>
+                            <div class="statistics-total-sum">
+                               /150,000
+                           </div>
+                        </div>
+                        <div class="dinner dinning">
+                            <div class="statistics-name">
+                                <h3>석식</h3>
+                            </div>
+                            <h2>93,543</h2>
+                            <div class="statistics-total-sum">
+                               /150,000
+                           </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="statistics-graph clearfix">
+                    <div class="graph-left">
+                        <div id="donutchart" style="width: 100%; height: 100%; padding-left: 50px; padding-top : 30px;"></div>
+                    </div>
+                    <div class="graph-right">
+                        <div id="chart_div" style="width: 100%; height: 100%;"></div>
+                    </div>
+                </div>
+            </div>
+        </div>    
+    </div>
+   
+    <!--script-->
+      
+      <!--
+      <div id="donutchart" style="width: 830px; height: 500px;"></div>
+       -->
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <script src="js/semantic.min.js"></script>
+    <script src="js/main.js"></script>
+
+    <!--Load the AJAX API-->
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load("current", {packages:["corechart"]});
+      google.charts.setOnLoadCallback(drawChart);
+      google.charts.setOnLoadCallback(drawVisualization);
+      
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Task', 'Hours per Day'],
+          ['Work',     11],
+          ['Eat',      2],
+          ['Commute',  2],
+          ['Watch TV', 2],
+          ['Sleep',    7]
+        ]);
+
+        var options = {
+          title: '시간대별 통계',
+          pieHole: 0.4,
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('donutchart'));
+        chart.draw(data, options);
+      }
+       function drawVisualization() {
+        // Some raw data (not necessarily accurate)
+        var data = google.visualization.arrayToDataTable([
+         ['Month', 'Bolivia', 'Ecuador', 'Madagascar', 'Papua New Guinea', 'Rwanda', 'Average'],
+         ['2004/05',  165,      938,         522,             998,           450,      614.6],
+         ['2005/06',  135,      1120,        599,             1268,          288,      682],
+         ['2006/07',  157,      1167,        587,             807,           397,      623],
+         ['2007/08',  139,      1110,        615,             968,           215,      609.4],
+         ['2008/09',  136,      691,         629,             1026,          366,      569.6]
+      ]);
+
+    var options = {
+      title : '기간별 통계',
+      vAxis: {title: 'Cups'},
+      hAxis: {title: 'Month'},
+      seriesType: 'bars',
+      series: {5: {type: 'line'}}
+    };
+
+    var chart = new google.visualization.ComboChart(document.getElementById('chart_div'));
+    chart.draw(data, options);
+  }
+    </script>
+  </body>
+  
+
+</html>

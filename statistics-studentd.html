@@ -1,0 +1,167 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/semantic.min.css">
+    
+  </head>
+
+  <body>
+      
+    <div class="ss-wrapper">
+        <div style="margin-bottom: 43px;">
+            <h1>
+                000 학생의 통계자료입니다.
+            </h1>
+        </div>
+        <div class="ss-datepicker">
+            <input type="date" id="currentDate" value="2017-05-05"/>
+        </div>
+        
+        <div class="ss-container">
+           <div class="ss-leftup">
+               <div class="ss-chart-left"> 
+                    <div class="ss-breakfast ss-dinning">
+                            <h4>조식</h4>
+                            <h2>123,124</h2>
+                            <div>/150,000</div>
+                    </div>
+                    <div class="ss-breakfast ss-dinning">
+                            <h4>중식</h4>
+                            <h2>123,124</h2>
+                            <div>/150,000</div>
+                    </div>
+                    <div class="ss-breakfast ss-dinning">
+                            <h4>석식</h4>
+                            <h2>123,124</h2>
+                            <div>/150,000</div>
+                    </div>
+               </div>
+               <div class="ss-chart-right">
+                    <div id="piechart_3d1" style="width: 100%; height: 100%;"></div>
+
+               </div>
+           </div>
+           <div class="ss-rightup">
+                <div class="ss-chart-left"> 
+                    <div class="ss-breakfast ss-dinning">
+                            <h4>조식</h4>
+                            <h2>123,124</h2>
+                            <div>/150,000</div>
+                    </div>
+                    <div class="ss-breakfast ss-dinning">
+                            <h4>중식</h4>
+                            <h2>123,124</h2>
+                            <div>/150,000</div>
+                    </div>
+                    <div class="ss-breakfast ss-dinning">
+                            <h4>석식</h4>
+                            <h2>123,124</h2>
+                            <div>/150,000</div>
+                    </div>
+               </div>
+               <div class="ss-chart-right">
+                    <div id="piechart_3d2" style="width: 100%; height: 100%;"></div>
+               </div>
+               
+           </div>
+           <div class="ss-leftdown">
+                <div class="ss-chart-left"> 
+                    <div class="ss-breakfast ss-dinning">
+                            <h4>조식</h4>
+                            <h2>123,124</h2>
+                            <div>/150,000</div>
+                    </div>
+                    <div class="ss-breakfast ss-dinning">
+                            <h4>중식</h4>
+                            <h2>123,124</h2>
+                            <div>/150,000</div>
+                    </div>
+                    <div class="ss-breakfast ss-dinning">
+                            <h4>석식</h4>
+                            <h2>123,124</h2>
+                            <div>/150,000</div>
+                    </div>
+               </div>
+               <div class="ss-chart-right">
+                      <div id="piechart_3d3" style="width: 100%; height: 100%;"></div>
+
+               </div>
+              
+           </div>
+           <div class="ss-rightdown">
+                <div class="ss-chart-left"> 
+                    <div class="ss-breakfast ss-dinning">
+                            <h4>조식</h4>
+                            <h2>123,124</h2>
+                            <div>/150,000</div>
+                    </div>
+                    <div class="ss-breakfast ss-dinning">
+                            <h4>중식</h4>
+                            <h2>123,124</h2>
+                            <div>/150,000</div>
+                    </div>
+                    <div class="ss-breakfast ss-dinning">
+                            <h4>석식</h4>
+                            <h2>123,124</h2>
+                            <div>/150,000</div>
+                    </div>
+               </div>
+               <div class="ss-chart-right">
+                       <div id="piechart_3d4" style="width: 100%; height: 100%;"></div>
+               </div>
+             
+           </div>
+        </div>
+    </div>
+   
+    <script src="js/jquery-3.2.1.min.js"></script> 
+    <script src="js/semantic.min.js"></script>
+    <script src="js/main.js"></script>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script type="text/javascript">
+      google.charts.load("current", {packages:["corechart"]});
+      google.charts.setOnLoadCallback(drawChart);
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Task', 'Hours per Day'],
+          ['Work',     11],
+          ['Eat',      2],
+          ['Commute',  2],
+          ['Watch TV', 2],
+          ['Sleep',    7]
+        ]);
+
+        var options1 = {
+          title: '일 단위',
+          is3D: true,
+        };
+        var options2 = {
+          title: '일주일 단위',
+          is3D: true,
+        };
+        var options3 = {
+          title: '한달 단위',
+          is3D: true,
+        };
+        var options4 = {
+          title: '일년 단위',
+          is3D: true,
+        };
+
+        var chart1 = new google.visualization.PieChart(document.getElementById('piechart_3d1'));
+        var chart2 = new google.visualization.PieChart(document.getElementById('piechart_3d2'));
+        var chart3 = new google.visualization.PieChart(document.getElementById('piechart_3d3'));
+        var chart4 = new google.visualization.PieChart(document.getElementById('piechart_3d4'));
+        chart1.draw(data, options1);
+        chart2.draw(data, options2);
+        chart3.draw(data, options3);
+        chart4.draw(data, options4);
+        
+      }
+
+    </script>
+  </body>
+</html>

@@ -1,0 +1,227 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/semantic.min.css">
+  </head>
+
+  <body>
+
+    <!--Div that will hold the pie chart-->
+    <!--
+    <div id="chart_div"  style="width: 500px; height: 500px;"></div>
+    <div id="donutchart" style="width: 500px; height: 500px;"></div>
+    -->
+    <div class="chart-main-wrapper">
+        
+        <div class="chart-part-container clearfix">
+            <div class="chart-part-left">
+                <ul class="statistic-name">
+                    <li>
+                        <a href="bytime.html">
+                            <h3>시간대별</h3>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="byuser.html">
+                            <h3>사용자별</h3>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="bydate.html">
+                            <h3>기간별</h3>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="bydinning.html">
+                            <h3>식단별</h3>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="chart-part-right">
+                <div class="statistics-dinning">
+                    <div class="statistics-dinning-wrapper clearfix">
+                       <table class="ui celled padded table">
+                            <thead>
+                                <tr>
+                                <th class="single line center aligned">식단명</th>
+                                <th class="center aligned">발생횟수</th>
+                                <th class="center aligned">먹은 학생수</th>
+                                <th class="center aligned">선호도</th>
+                            </tr></thead>
+                            <tbody>
+                                <tr>
+                                <td>
+                                    <h3 class="ui center aligned header">짜장면</h3>
+                                </td>
+                                <td class="single line center aligned">
+                                    100
+                                </td>
+                                <td class="center aligned">
+                                    80% <br>
+                                    <a href="#">18 studies</a>
+                                </td>
+                                <td class="center aligned">
+                                    <div class="ui star rating" data-rating="3" data-max-rating="5"></div>
+                                </td>
+                                </tr>
+                                <tr>
+                                <td>
+                                    <h3 class="ui center aligned header">라면</h3>
+                                </td>
+                                <td class="single line center aligned">
+                                    90
+                                </td>
+                                <td class="center aligned">
+                                    100% <br>
+                                    <a href="#">65 studies</a>
+                                </td>
+                                <td class="center aligned">
+                                    <div class="ui star rating" data-rating="3" data-max-rating="5"></div>
+                                </td>
+                                </tr>
+                                    <tr>
+                                <td>
+                                    <h3 class="ui center aligned header">짜장면</h3>
+                                </td>
+                                <td class="single line center aligned">
+                                    100
+                                </td>
+                                <td class="center aligned">
+                                    80% <br>
+                                    <a href="#">18 studies</a>
+                                </td>
+                                <td class="center aligned">
+                                    <div class="ui star rating" data-rating="3" data-max-rating="5"></div>
+                                </td>
+                                </tr>
+                                <tr>
+                                <td>
+                                    <h3 class="ui center aligned header">라면</h3>
+                                </td>
+                                <td class="single line center aligned">
+                                    90
+                                </td>
+                                <td class="center aligned">
+                                    100% <br>
+                                    <a href="#">65 studies</a>
+                                </td>
+                                <td class="center aligned">
+                                    <div class="ui star rating" data-rating="3" data-max-rating="5"></div>
+                                </td>
+                                </tr>
+                                    <tr>
+                                <td>
+                                    <h3 class="ui center aligned header">짜장면</h3>
+                                </td>
+                                <td class="single line center aligned">
+                                    100
+                                </td>
+                                <td class="center aligned">
+                                    80% <br>
+                                    <a href="#">18 studies</a>
+                                </td>
+                                <td class="center aligned">
+                                    <div class="ui star rating" data-rating="3" data-max-rating="5"></div>
+                                </td>
+                                </tr>
+                                <tr>
+                                <td>
+                                    <h3 class="ui center aligned header">라면</h3>
+                                </td>
+                                <td class="single line center aligned">
+                                    90
+                                </td>
+                                <td class="center aligned">
+                                    100% <br>
+                                    <a href="#">65 studies</a>
+                                </td>
+                                <td class="center aligned">
+                                    <div class="ui star rating" data-rating="3" data-max-rating="5"></div>
+                                </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <h3 class="ui center aligned header">짜장면</h3>
+                                    </td>
+                                    <td class="single line center aligned">
+                                        100
+                                    </td>
+                                    <td class="center aligned">
+                                        80% <br>
+                                        <a href="#">18 studies</a>
+                                    </td>
+                                    <td class="center aligned">
+                                        <div class="ui star rating" data-rating="3" data-max-rating="5"></div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <h3 class="ui center aligned header">라면</h3>
+                                    </td>
+                                    <td class="single line center aligned">
+                                        90
+                                    </td>
+                                    <td class="center aligned">
+                                        100% <br>
+                                        <a href="#">65 studies</a>
+                                    </td>
+                                    <td class="center aligned">
+                                        <div class="ui star rating" data-rating="3" data-max-rating="5"></div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <h3 class="ui center aligned header">라면</h3>
+                                    </td>
+                                    <td class="single line center aligned">
+                                        90
+                                    </td>
+                                    <td class="center aligned">
+                                        100% <br>
+                                        <a href="#">65 studies</a>
+                                    </td>
+                                    <td class="center aligned">
+                                        <div class="ui star rating" data-rating="3" data-max-rating="5"></div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <h3 class="ui center aligned header">라면</h3>
+                                    </td>
+                                    <td class="single line center aligned">
+                                        90
+                                    </td>
+                                    <td class="center aligned">
+                                        100% <br>
+                                        <a href="#">65 studies</a>
+                                    </td>
+                                    <td class="center aligned">
+                                        <div class="ui star rating" data-rating="3" data-max-rating="5"></div>
+                                    </td>
+                                </tr>
+                                
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>    
+    </div>
+   
+    <!--script-->
+      
+      <!--
+      <div id="donutchart" style="width: 830px; height: 500px;"></div>
+       -->
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <script src="js/semantic.min.js"></script>
+    <script src="js/main.js"></script>
+
+   
+  </body>
+  
+
+</html>
